@@ -36,7 +36,7 @@ module.exports = class CoursesDatabase {
         return new Promise(async (resolve, reject) => {
             const [results, metadata] = await this.database.sequelize.query(`SELECT *
                                                                              FROM course_parts
-                                                                             WHERE course_id = ${id}`)
+                                                                             WHERE course_id = ${id} ORDER BY id ASC`)
 
             resolve(results)
         })
